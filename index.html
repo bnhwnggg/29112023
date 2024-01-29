@@ -1,0 +1,90 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>29/12/2023</title>
+
+        <style>
+        
+        .container{
+            display:flex;
+            flex-direction: row;
+        }
+        .buttonClick {
+            background-color: blanchedalmond;
+            padding: 10px;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            margin-right: 10px;
+        }
+
+        label {
+            margin-bottom: 5px;
+            padding: 10px;
+        }
+
+        input, select {
+            padding: 8px;
+        }
+
+        #result{
+            color:blue;
+        }
+    
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="container">
+        <div class="input-container">
+        <label for="amount"> Amount</label>
+        <input type="number" id="amount" placeholder="Nhap so tien muon convert">
+        </div>
+        
+        <div class="input-container">
+        <label for="currencyOne">From Currency</label>
+        <select id="currencyOne">
+            <option value="VND">VND</option>
+        </select>
+        </div>
+
+        <div class="input-container">
+        <label for="currencyTwo">To Currency</label>
+        <select id="currencyTwo">
+            <option value="USD">USD</option>
+        </select>
+        </div>
+        <button onclick="convertCurrency()" class="buttonClick">Convert</button>
+
+        </div>
+        <h1 id="result"></h1>
+
+        <script>
+
+            function convertCurrency(){
+                //input 1
+                let amount = parseFloat(document.getElementById('amount').value);
+
+                //input currency to-from
+                let fromCurrency = document.getElementById('currencyOne').value;
+                let toCurrency = document.getElementById('currencyTwo').value;
+
+                //exchange rate
+                let usdToVndRate = 24000;
+
+                //exchange formula
+                let resultExchange = amount/usdToVndRate;
+
+                document.getElementById('result').innerText = "Result: " + resultExchange + " " + toCurrency;
+
+            }
+
+        </script>
+    </body>
+    </html>
